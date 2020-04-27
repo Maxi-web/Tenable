@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="flex.css">
+    <title></title>
+  </head>
+
+  <body>
+    <div id="quiz">
+        <p class="question">
+          Insert tenable question here
+        </p>
+        <div class="list">
+                <div class="top-tri"></div>
+                <div class="answer q1">1</div>
+                <div class="answer q2">2</div>
+                <div class="answer q3">3</div>
+                <div class="answer q4">4</div>
+                <div class="answer q5">5</div>
+                <div class="answer q6">6</div>
+                <div class="answer q7">7</div>
+                <div class="answer q8">8</div>
+                <div class="answer q9">9</div>
+                <div class="answer q10">10</div>
+        </div>
+
+    </div>
+    <div class="guess-div">
+    <input type="text" autocomplete="off" class="guess" onfocus="this.value=''"placeholder="Guess..."/>
+   </div>
+   <div class="new-game">
+     <button onclick="newGame()">New Game</button>
+  </div>
+    <div id="results"></div>
+    <script src="quiz.js"></script>
+  </body>
+</html>
