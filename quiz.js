@@ -18,6 +18,7 @@ function newGame(){
     q = myQuestions[Math.floor(Math.random()*myQuestions.length)]
     console.log(q)
     document.getElementsByClassName(`question`)[0].innerHTML = q.question
+    lives = 1
 }
 
 const guessbox = document.querySelector('.guess');
@@ -35,6 +36,9 @@ function check(guess, ans, j) {
     document.getElementsByClassName(`q${j+1}`)[0].innerHTML = guess;
     element = document.getElementsByClassName(`q${j+1}`)[0];
     element.classList.add('correct');
+    fin = 1
+  } else {
+    fin = 0
   }
 }
 
@@ -43,10 +47,19 @@ function cycle(guess, i) {
   pick.classList.add('check');
   console.log(guess);
   console.log(q.answers[i]);
-  setTimeout(check(guess,q.answers[i],i),3000)
+  check(guess,q.answers[i],i)
   pick.classList.remove('check');
   i--;
-  if( i >= 0 ){
+  if(fin != 1){
+    if (i >= 0){
       cycle (guess,i);
+    } else if ( i < 0 & lives > 0) {
+      alert("Ruh-Roh life lost!")
+      lives -= 1
+    }
+    else {
+      alert("YOU're NOT Tenable!!");
+    }
   }
 }
+
