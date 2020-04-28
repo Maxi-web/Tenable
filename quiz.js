@@ -25,20 +25,28 @@ guessbox.addEventListener('keydown', setQuery);
 
 function setQuery(evt) {
   if (evt.keyCode == 13) {
-    getResults(guessbox.value);
+    cycle(guessbox.value,9);
   }
 }
 
-function getResults(guess){
-  for (i = 0; i < 10; i++) {
-    /*pick = document.getElementsByClassName(`q${i+1}`)[0];
-    console.log(pick);
-    pick.classList.add('check');*/
-    if (q.answers[i] == guess) {
-      document.getElementsByClassName(`q${i+1}`)[0].innerHTML = guess;
-      element = document.getElementsByClassName(`q${i+1}`)[0];
-      /*pick.classList.remove('check');*/
-      element.classList.add('correct');
-    }
-    }
+function check(guess, ans, j) {
+  if (guess === ans){
+    /*Make answer show as correct*/
+    document.getElementsByClassName(`q${j+1}`)[0].innerHTML = guess;
+    element = document.getElementsByClassName(`q${j+1}`)[0];
+    element.classList.add('correct');
   }
+}
+
+function cycle(guess, i) {
+  pick = document.getElementsByClassName(`q${i+1}`)[0];
+  pick.classList.add('check');
+  console.log(guess);
+  console.log(q.answers[i]);
+  setTimeout(check(guess,q.answers[i],i),3000)
+  pick.classList.remove('check');
+  i--;
+  if( i >= 0 ){
+      cycle (guess,i);
+  }
+}
