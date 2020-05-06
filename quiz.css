@@ -1,141 +1,236 @@
-body {
-  background-color: black;
-  border-radius: 15% 15% 0% 0%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 30px;
 }
+*.container{
+width: 900px;
+margin: 20px auto;
+position: relative;
+overflow-x: visible;
+background-color: black;
+/*display: none;*/
+}
+.top-pan{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.top-left{
+  flex-basis: 25%;
+}
+.top-mid{
+  flex-basis: 50%;
+}
+.top-right{
+  flex-basis: 25%;
 
+}
+.main-cont{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+}
+.new-game{
+padding: 25px 15px 25px;
+margin: 30% 30% 30% 30%;
+border-radius: 20%;
+background-color: #4CAF50;
+border: none;
+color: white;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+box-shadow: 10px 10px 5px grey;
+}
 .question {
   background-color: #0000ff;
   color: white;
   text-align: center;
-  height: 20vw;
-  width: 70%;
-  margin: 0 auto;
-  margin-bottom: 5%;
+  padding: 25px 15px 25px;
   font-size: 2vw;
   font-family: verdana;
-  border-radius: 15% 15% 0% 0%;
+  border-radius: 20%;
+  margin-top: 15%;
+  box-shadow: 10px 10px 5px grey;
 }
-
-.guess-div .guess{
-  margin: 1% 15% 5% 15%;
-  background-color: #00ff00;
-  width: 70%;
-  border-radius: 25%;
-  text-align: center;
-}
-.new-game{
-    background-color: #00ff00;
-    margin: 1% 15% 5% 15%;
-    width: 70%;
-    border: none;
-    color: white;
-    padding: 2% 10% 2% 10%;
-    border-radius:
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-.list {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  background-color: Black;
-  width: 50%;
-  margin: 0 auto;
-  align-items: center;
-}
-
-.list .answer {
-  text-align: center;
-  line-height: 75px;
-  font-size: 2vw;
-}
-.top-tri {
-  border-bottom: 100px solid #00ff00;
-  border-left: 45px solid transparent;
-  border-right: 45px solid transparent;
-  margin-bottom: 5%;
-  border-radius: 13%;
+.top-tri{
+  border-bottom: 300px solid #00ff00;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+  margin-bottom: 0.5%;
 
 }
-.q1{
-  border-bottom: 100px solid #8000ff;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  height: 0;
-  width: 100px;
-}
-.q2{
-  border-top: 1px solid white;
-  border-bottom: 100px solid #8000ff;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  height: 0;
-  width: 150px;
-}
-.q3{
-  border-top: 1px solid white;
-  border-bottom: 100px solid #8000ff;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  height: 0;
-  width: 200px;
-}
-.q4{
-  border-top: 1px solid white;
-  border-bottom: 100px solid #8000ff;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  height: 0;
-  width: 250px;
-}
-.q5{
-  border-top: 1px solid white;
+.q1,.q2,.q3,.q4,.q5,.q6,.q7,.q8,.q9,.q10{
   border-bottom: 100px solid #8000ff;
   border-left: 25px solid transparent;
   border-right: 25px solid transparent;
   height: 0;
   width: 300px;
-}.q6{
+  color: white;
+}
+.q2{
   border-top: 1px solid white;
-  border-bottom: 100px solid #8000ff;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  height: 0;
   width: 350px;
-}.q7{
+}
+.q3{
   border-top: 1px solid white;
-  border-bottom: 100px solid #8000ff;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  height: 0;
   width: 400px;
-}.q8{
+}
+.q4{
   border-top: 1px solid white;
-  border-bottom: 100px solid #8000ff;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  height: 0;
   width: 450px;
-}.q9{
+}
+.q5{
   border-top: 1px solid white;
-  border-bottom: 100px solid #8000ff;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  height: 0;
   width: 500px;
-}.q10{
+}
+.q6{
   border-top: 1px solid white;
-  border-bottom: 100px solid #8000ff;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  height: 0;
   width: 550px;
+}
+.q7{
+  border-top: 1px solid white;
+  width: 600px;
+}
+.q8{
+  border-top: 1px solid white;
+  width: 650px;
+}
+.q9{
+  border-top: 1px solid white;
+  width: 700px;
+}
+.q10{
+  border-top: 1px solid white;
+  width: 750px;
+}
+.life-circ{
+  padding: 10px 15px 25px;
+  margin: 10% 0% 30% 30%;
+  border-radius: 20%;
+  background-color: #4CAF50;
+  border: none;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 10px 10px 5px grey;
+  height: 130px;
+  width: 140px;
+}
+.lives{
+  background-color: #8809b9;
+  display: block;
+  height: 30px;
+  margin-top: 10%;
+  margin-left: 10%;
+  margin-bottom: 15%;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  box-shadow: 10px 10px 5px grey;
+  width: 30px;
+}
+.lives:before{
+  content: "";
+  background-color: #8809b9;
+  border-radius: 50%;
+  height: 30px;
+  width:30px;
+  position: absolute;
+  top: -15px;
+  left: 0px;
+}
+.lives:after{
+  content: "";
+  background-color: #8809b9;
+  border-radius: 50%;
+  height: 30px;
+  width:30px;
+  position: absolute;
+  box-shadow: 10px 10px 5px grey;
+  left: 15px;
+  top: 0px;
+}
+.nominate,.overrule{
+  border-radius: 20%;
+  background-color: #307833;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 5px 5px 5px grey;
+}
+.overrule:hover{
+cursor: pointer;
+}
+.nominate:hover{
+cursor: pointer;
+}
+.grow {
+  animation: enlarge 1s 1;
+}
+@keyframes enlarge {
+  0% {
+    transform: scale( 1 );
+  }
+  20% {
+    transform: scale( 1.25 )
+  }
+  40% {
+    transform: scale( 1.5 )
+  }
+}
+.guess{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: #00ff00;
+  width: 70%;
+  height:40px;
+  border-radius: 25%;
+  text-align: center;
+  box-shadow: 10px 10px 5px grey;
+}
+input{
+  background-color: #00ff00;
+  border: none;
+  height: inherit;
+}
+.check{
+  border-bottom: 100px solid #ede9e6;
 }
 .correct{
   border-bottom: 100px solid #00ff00;
+  color: black;
+  font-size: 50px;
 }
-.check{
-  border-bottom: 100px solid red;
+
+.hide{
+  display: none;
+  height:0px;
+  width:0px;
+}
+.wrong{
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  font-size: 50px;
+  color: #fff;
+  line-height: 500px;
+  text-align: center;
+  background: #000;
+  margin: 25% 25% auto;
+}
+*.container2{
+width: 1000px;
+height:1000px;
+margin: 20px auto;
+position: relative;
+overflow-x: visible;
+background-color: white;
 }
