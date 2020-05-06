@@ -2,38 +2,53 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="quiz.css">
-    <link rel="stylesheet" href="flex.css">
+    <link rel="stylesheet" href="quiz2.css">
     <title></title>
   </head>
-
   <body>
-    <div id="quiz">
-        <p class="question">
-          Insert tenable question here
-        </p>
-        <div class="list">
-                <div class="top-tri"></div>
-                <div class="answer q1">1</div>
-                <div class="answer q2">2</div>
-                <div class="answer q3">3</div>
-                <div class="answer q4">4</div>
-                <div class="answer q5">5</div>
-                <div class="answer q6">6</div>
-                <div class="answer q7">7</div>
-                <div class="answer q8">8</div>
-                <div class="answer q9">9</div>
-                <div class="answer q10">10</div>
+    <div class="container">
+      <div class="top-pan">
+        <div class="top-left">
+          <button class = "new-game" onclick="newGame()">New Game</button>
         </div>
-
+        <div class="top-mid">
+          <div class="question">
+            Let's play Tenable
+          </div>
+        </div>
+        <div class="top-right">
+          <div class="life-circ">
+            <!--<img src="heart.png" alt="Italian Trulli" height=50px;>-->
+          <div class="lives"></div>
+          <button class = "nominate n1" onclick="">N</button>
+          <button class = "nominate n2" onclick="">N</button>
+          <button class = "nominate n3" onclick="">N</button>
+          <button class = "overrule" onclick="">O</button>
+        </div>
+        </div>
+      </div>
+      <div class="main-cont">
+        <div class="top-tri"></div>
+        <div class="q1">1</div>
+        <div class="q2">2</div>
+        <div class="q3">3</div>
+        <div class="q4">4</div>
+        <div class="q5">5</div>
+        <div class="q6">6</div>
+        <div class="q7">7</div>
+        <div class="q8">8</div>
+        <div class="q9">9</div>
+        <div class="q10">10</div>
+        <div class ="guess">
+          <input type="text" class="guess-input" autocomplete="off" onfocus="this.value=''"placeholder="Guess..."/>
+        </div>
+      </div>
     </div>
-    <div class="guess-div">
-    <input type="text" autocomplete="off" class="guess" onfocus="this.value=''"placeholder="Guess..."/>
-   </div>
-   <div class="new-game">
-     <button onclick="newGame()">New Game</button>
-  </div>
-    <div id="results"></div>
+      <div class="container2 hide">
+        <div class="wrong">
+          WRONG
+        </div>
+      </div>
     <script src="quiz.js"></script>
   </body>
 </html>
