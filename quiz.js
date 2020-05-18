@@ -27,14 +27,14 @@ function newGame(){
     lives = 1
     heart = document.getElementsByClassName('lives')[0];
     heart.classList.remove('hide');
-    /*firstNom = document.querySelector('.n1');
-    firstNom.classList.remove('hide');
-    secNom = document.querySelector('.n2');
-    secNom.classList.remove('hide');
-    thirdNom = document.querySelector('.n3');
-    thirdNom.classList.remove('hide');
-    const ovr = document.querySelector('.overrule');
-    ovr.classList.add('hide')*/
+    let nom1 = document.querySelector('.n1');
+    nom1.classList.remove('hide');
+    let nom2 = document.querySelector('.n2');
+    nom2.classList.remove('hide');
+    let nom3 = document.querySelector('.n3');
+    nom3.classList.remove('hide');
+    let ovr = document.querySelector('.overrule');
+    ovr.classList.remove('hide')
 }
 
 let snd = new Audio("correct.mp3"); // buffers automatically when created
