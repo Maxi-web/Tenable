@@ -20,6 +20,7 @@ function newGame(){
     document.getElementsByClassName(`q${i+1}`)[0].innerHTML = i+1;
     element.classList.remove('correct');
     element.classList.remove('grow');
+	element.classList.remove('check');
   };
     q = myQuestions[Math.floor(Math.random()*myQuestions.length)]
     console.log(q)
@@ -37,7 +38,7 @@ function newGame(){
     ovr.classList.remove('hide')
 }
 
-let snd = new Audio("correct.mp3"); // buffers automatically when created
+//let snd = new Audio("correct.mp3"); // buffers automatically when created
 
 
 //guess input box
@@ -50,56 +51,61 @@ function setQuery(evt) {
   }
 }
 
-//check if guess is correct
-function cycle(guess, i) {
+async function cycle(guess,i) {
+  console.log('calling');
   pick = document.getElementsByClassName(`q${i+1}`)[0];
   pick.classList.add('check');
-  console.log(guess);
-  console.log(q.answers[i]);
-  check(guess,q.answers[i],i)
-  i--;
-  if(fin != 1){       //Check if answer has been found
-    if (i >= 0){      //if answers lef to check will go check
-      cycle (guess,i);
-    } else if ( i < 0 & lives > 0) { //No answers to check left but have life
-      lives -= 1
-      heart = document.getElementsByClassName('lives')[0];
-      heart.classList.add('hide');
-      sgn = document.getElementsByClassName('container2')[0];
-      sgn.classList.remove('hide');
-      cnt = document.getElementsByClassName('container')[0];
-      cnt.classList.add('hide');
-      setTimeout(function () {
-        sgn.classList.add('hide');
-        cnt.classList.remove('hide');
-      },3000)
-    }
-    else { //Nothing left to check and out of lives
-      alert("You're Terrible at Tenable!!");
-    }
-  }
+  check(guess,q.answers[i],i);
+  const result = await resolveAfterXSeconds();
+  pick.classList.remove('check');
+  console.log(result);
+  console.log(fin);
+  i--
+	if(fin!=1){
+		if(i>=0){
+  cycle(guess,i);
+		} else if (i < 0 & lives > 0){
+			console.log('life lost')
+			lives -= 1
+			heart = document.getElementsByClassName('lives')[0];
+			heart.classList.add('hide');
+			sgn = document.getElementsByClassName('container2')[0];
+			sgn.classList.remove('hide');
+			cnt = document.getElementsByClassName('container')[0];
+			cnt.classList.add('hide');
+			setTimeout(function () {
+				sgn.classList.add('hide');
+				cnt.classList.remove('hide');
+			},3000)
+		} else {
+			alert("You're Terrible at Tenable!!");
+		}
+	}
+
 }
+
+}*/
 // Check guess against answer
 function check(guess, ans, j) {
+	console.log('checking...')
   if (guess === ans){
-    /*Make answer show as correct*/
-    document.getElementsByClassName(`q${j+1}`)[0].innerHTML = guess;
+    //Make answer show as correct
+	element = document.getElementsByClassName(`q${j+1}`)[0];
+    element.innerHTML = guess;
     scaleFontSize(`q${j+1}`)
-    element = document.getElementsByClassName(`q${j+1}`)[0];
     element.classList.add('correct');
     element.classList.add('grow');
-    snd.play();
+    //snd.play();
     fin = 1;
   } else {
     fin = 0
-
-    //sleep(2000).then(() => { element.classList.remove('check')})
     setTimeout(function () {
    element = document.getElementsByClassName(`q${j+1}`)[0];
    element.classList.remove('check')}
    ,3000)
   }
 }
+
 
 //Make alert when all 10 are guessed
 /*function allAnswers(){
@@ -148,4 +154,13 @@ function sleep(milliseconds) {
   do {
     currentDate = Date.now();
   } while (currentDate - date < milliseconds);
+}
+
+//await function
+function resolveAfterXSeconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('resolved');
+    }, 1000);
+  });
 }
